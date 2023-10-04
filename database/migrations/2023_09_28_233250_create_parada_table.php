@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('parada', function (Blueprint $table) {
             $table->id();
-            $table->biginteger('id_chec');
+            $table->biginteger('id_usr');
             $table->string('nom_par');
-            $table->foreign('id_chec')->references('id')->on('checador')->onDelete('cascade');
+            $table->foreign('id_usr')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

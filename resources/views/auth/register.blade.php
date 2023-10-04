@@ -61,6 +61,17 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="rol" class="col-md-4 col-form-label text-md-end">Rol</label>
+                            <div class="col-md-6">
+                            <select class="form-select" aria-label="Selecciona Rol" id="rol" name="rol">
+                                <option selected="" disabled="">Selecciona Rol</option>
+                                <option value=0>Parada</option>
+                                <option value=1>Base</option>
+                            </select>
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
