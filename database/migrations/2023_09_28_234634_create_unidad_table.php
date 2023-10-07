@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->biginteger('id_para');
             $table->biginteger('id_ruta');
-            $table->string('num')->unique();
-            $table->string('check');
-            $table->string('act_inact');
+            $table->string('num')->unique(); //placa
+            $table->boolean('check');
+            $table->boolean('act_inact')->default(true);
             $table->string('h_salida');
             $table->string('h_llegada');
             $table->string('nota');
