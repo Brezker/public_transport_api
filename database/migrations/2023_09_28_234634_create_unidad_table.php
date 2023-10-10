@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('num')->unique(); //placa
             $table->boolean('check');
             $table->boolean('act_inact')->default(true);
-            $table->string('h_salida');
-            $table->string('h_llegada');
+            $table->time('h_salida');
+            $table->time('h_llegada');
             $table->string('nota');
             //Foreign
             $table->foreign('id_para')->references('id')->on('parada')->onDelete('cascade');
