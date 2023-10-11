@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('act_inact')->default(true);
             $table->time('h_salida');
             $table->time('h_llegada');
+            $table->string('pasa_por');
             $table->string('nota');
             //Foreign
             $table->foreign('id_para')->references('id')->on('parada')->onDelete('cascade');
