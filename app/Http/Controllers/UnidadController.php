@@ -29,6 +29,7 @@ class UnidadController extends Controller
         $unidad->act_inact = $req->act_inact;
         $unidad->h_salida = $req->h_salida;
         $unidad->h_llegada = $req->h_llegada;
+        $unidad->pasa_por = $req->pasa_por;
         $unidad->nota = $req->nota;
 
         $unidad->save();
@@ -54,5 +55,26 @@ class UnidadController extends Controller
         $unidad->delete();
 
         return "Ok";
+    }
+
+
+    //Funciones para listar las unidades en true o false ('check')
+    public function listFalse(Request $req)
+    {
+        // Obtener todas las unidades donde 'check' es igual a false desde el modelo "m_unidad"
+        $unidades = m_unidad::where('check', false)->get();
+
+        // Retornar la lista de unidades con 'check' igual a false como respuesta
+        return $unidades;
+    }
+
+
+    public function listTrue(Request $req)
+    {
+        // Obtener todas las unidades donde 'check' es igual a true desde el modelo "m_unidad"
+        $unidades = m_unidad::where('check', true)->get();
+
+        // Retornar la lista de unidades con 'check' igual a true como respuesta
+        return $unidades;
     }
 }
