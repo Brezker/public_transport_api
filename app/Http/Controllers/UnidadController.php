@@ -39,7 +39,10 @@ class UnidadController extends Controller
     public function list(Request $req)
     {
         //Obtener todas las unidades desde el modelo "m_unidad"
-        $unidades = m_unidad::all();
+        $unidades = m_unidad::join('ruta','unidad.id_ruta','=','ruta.id')
+        ->join('parada','unidad.id_para','=','parada.id')
+        ->select('unidad.*', 'ruta.nom_ruta as nombre_ruta', 'parada.nom_par as nombre_parada')
+        ->get();
 
         //Retorna la lista de unidades como  respuesta
         return $unidades;
