@@ -49,3 +49,5 @@ Route::post('/unidad/delete', [UnidadController::class, "delete"]);
 //Ruta para listar las unidades en false
 Route::get('/unidades/parada', [UnidadController::class, 'listFalse']);
 Route::get('/unidades/base', [UnidadController::class, 'listTrue']);
+
+Route::get('/unidades/pasajero/{id_para}', [UnidadController::class, 'listParadasbyId']);

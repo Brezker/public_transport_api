@@ -39,10 +39,10 @@ class UnidadController extends Controller
     public function list(Request $req)
     {
         //Obtener todas las unidades desde el modelo "m_unidad"
-        $unidades = m_unidad::join('ruta','unidad.id_ruta','=','ruta.id')
-        ->join('parada','unidad.id_para','=','parada.id')
-        ->select('unidad.*', 'ruta.nom_ruta as nombre_ruta', 'parada.nom_par as nombre_parada')
-        ->get();
+        $unidades = m_unidad::join('ruta', 'unidad.id_ruta', '=', 'ruta.id')
+            ->join('parada', 'unidad.id_para', '=', 'parada.id')
+            ->select('unidad.*', 'ruta.nom_ruta as nombre_ruta', 'parada.nom_par as nombre_parada')
+            ->get();
 
         //Retorna la lista de unidades como  respuesta
         return $unidades;
@@ -65,7 +65,12 @@ class UnidadController extends Controller
     public function listFalse(Request $req)
     {
         // Obtener todas las unidades donde 'check' es igual a false desde el modelo "m_unidad"
-        $unidades = m_unidad::where('check', false)->get();
+        $unidades = m_unidad::join('ruta', 'unidad.id_ruta', '=', 'ruta.id')
+            ->join('parada', 'unidad.id_para', '=', 'parada.id')
+            ->select('unidad.*', 'ruta.nom_ruta as nombre_ruta', 'parada.nom_par as nombre_parada')
+            ->where('check', false)
+            ->get();
+
 
         // Retornar la lista de unidades con 'check' igual a false como respuesta
         return $unidades;
@@ -75,9 +80,26 @@ class UnidadController extends Controller
     public function listTrue(Request $req)
     {
         // Obtener todas las unidades donde 'check' es igual a true desde el modelo "m_unidad"
-        $unidades = m_unidad::where('check', true)->get();
+        $unidades =
+            m_unidad::join('ruta', 'unidad.id_ruta', '=', 'ruta.id')
+            ->join('parada', 'unidad.id_para', '=', 'parada.id')
+            ->select('unidad.*', 'ruta.nom_ruta as nombre_ruta', 'parada.nom_par as nombre_parada')
+            ->where('check', true)
+            ->get();
 
         // Retornar la lista de unidades con 'check' igual a true como respuesta
+        return $unidades;
+    }
+
+    public function listParadasbyId(Request $req, $id_para)
+    {
+        $unidades =  m_unidad::join('ruta', 'unidad.id_ruta', '=', 'ruta.id')
+            ->join('parada', 'unidad.id_para', '=', 'parada.id')
+            ->select('unidad.*', 'ruta.nom_ruta as nombre_ruta', 'parada.nom_par as nombre_parada')
+            ->where('check', false)
+            ->where('unidad.id_para', $id_para)
+            ->get();
+
         return $unidades;
     }
 }
