@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

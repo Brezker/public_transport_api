@@ -7,7 +7,7 @@ class ContentSecurityPolicy
     public function handle($request, Closure $next)
     {
         $response = $next($request);
-        $response->headers->set('Content-Security-Policy', 'block-all-mixed-content');
+        $response->headers->set('Content-Security-Policy', 'upgrade-insecure-requests');
         return $response;
     }
 }
