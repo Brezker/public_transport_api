@@ -7,6 +7,7 @@
 ## Acerca de PTA
 
 Public Transport API (PTA) es una API desarrollada en Laravel que funciona en conjunto con una aplicación móvil alojada en el siguiente repositorio.
+
 [PTA App Android](https://github.com/Brezker/pta_android/releases/tag/Prototipo1)
 
 ### Premium Partners
